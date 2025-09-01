@@ -256,19 +256,19 @@ export default function BmiCalculator() {
                 <RadioGroup value={goal} onValueChange={(v) => setGoal(v as Goal)} className="grid grid-cols-3 gap-4 mb-4">
                     <div>
                         <RadioGroupItem value="lose" id="lose" className="peer sr-only" />
-                        <Label htmlFor="lose" className="flex flex-col items-center justify-between rounded-md border-2 border-white/20 bg-transparent p-4 hover:bg-white/20 hover:text-white peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary">
+                        <Label htmlFor="lose" className="flex flex-col items-center justify-between rounded-full border-2 border-white/20 bg-transparent p-4 hover:bg-white/20 hover:text-white peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary">
                             Lose Weight
                         </Label>
                     </div>
                      <div>
                         <RadioGroupItem value="maintain" id="maintain" className="peer sr-only" />
-                        <Label htmlFor="maintain" className="flex flex-col items-center justify-between rounded-md border-2 border-white/20 bg-transparent p-4 hover:bg-white/20 hover:text-white peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary">
+                        <Label htmlFor="maintain" className="flex flex-col items-center justify-between rounded-full border-2 border-white/20 bg-transparent p-4 hover:bg-white/20 hover:text-white peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary">
                             Maintain
                         </Label>
                     </div>
                      <div>
                         <RadioGroupItem value="gain" id="gain" className="peer sr-only" />
-                        <Label htmlFor="gain" className="flex flex-col items-center justify-between rounded-md border-2 border-white/20 bg-transparent p-4 hover:bg-white/20 hover:text-white peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary">
+                        <Label htmlFor="gain" className="flex flex-col items-center justify-between rounded-full border-2 border-white/20 bg-transparent p-4 hover:bg-white/20 hover:text-white peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary">
                             Gain Weight
                         </Label>
                     </div>
