@@ -142,7 +142,11 @@ export default function BmiCalculator() {
     calculateCalories(weightKg, heightCm, ageNum, gender, activityLevel);
   };
   
-  const cardClassName = "bg-black/20 backdrop-filter backdrop-blur-lg border border-white/20 text-white shadow-lg";
+  const cardClassName = "bg-white/10 backdrop-filter backdrop-blur-sm border border-white/20 text-white shadow-lg";
+  const inputClassName = "bg-white/10 border-white/20 placeholder-gray-400 focus:bg-white/10"
+  const selectTriggerClassName = "bg-white/10 border-white/20"
+  const tabsListClassName = "bg-white/10"
+
 
   return (
     <div className="w-full max-w-md">
@@ -153,30 +157,30 @@ export default function BmiCalculator() {
         </CardHeader>
         <CardContent>
           <Tabs value={unit} onValueChange={handleUnitChange} className="w-full">
-            <TabsList className="grid w-full grid-cols-2 bg-white/10">
+            <TabsList className={cn("grid w-full grid-cols-2", tabsListClassName)}>
               <TabsTrigger value="metric">Metric</TabsTrigger>
               <TabsTrigger value="imperial">Imperial</TabsTrigger>
             </TabsList>
             <TabsContent value="metric" className="space-y-4 pt-4">
               <div className="space-y-2">
                 <Label htmlFor="metric-weight">Weight (kg)</Label>
-                <Input id="metric-weight" type="number" placeholder="e.g., 70" value={metricValues.weight} onChange={(e) => setMetricValues({ ...metricValues, weight: e.target.value })} className="bg-white/10 border-white/20 placeholder-gray-400" />
+                <Input id="metric-weight" type="number" placeholder="e.g., 70" value={metricValues.weight} onChange={(e) => setMetricValues({ ...metricValues, weight: e.target.value })} className={inputClassName} />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="metric-height">Height (cm)</Label>
-                <Input id="metric-height" type="number" placeholder="e.g., 175" value={metricValues.height} onChange={(e) => setMetricValues({ ...metricValues, height: e.target.value })} className="bg-white/10 border-white/20 placeholder-gray-400"/>
+                <Input id="metric-height" type="number" placeholder="e.g., 175" value={metricValues.height} onChange={(e) => setMetricValues({ ...metricValues, height: e.target.value })} className={inputClassName}/>
               </div>
             </TabsContent>
             <TabsContent value="imperial" className="space-y-4 pt-4">
               <div className="space-y-2">
                 <Label htmlFor="imperial-weight">Weight (lbs)</Label>
-                <Input id="imperial-weight" type="number" placeholder="e.g., 155" value={imperialValues.weight} onChange={(e) => setImperialValues({ ...imperialValues, weight: e.target.value })} className="bg-white/10 border-white/20 placeholder-gray-400"/>
+                <Input id="imperial-weight" type="number" placeholder="e.g., 155" value={imperialValues.weight} onChange={(e) => setImperialValues({ ...imperialValues, weight: e.target.value })} className={inputClassName}/>
               </div>
               <div className="space-y-2">
                 <Label>Height</Label>
                 <div className="grid grid-cols-2 gap-4">
-                  <Input type="number" placeholder="feet" value={imperialValues.ft} onChange={(e) => setImperialValues({ ...imperialValues, ft: e.target.value })} aria-label="Height in feet" className="bg-white/10 border-white/20 placeholder-gray-400"/>
-                  <Input type="number" placeholder="inches" value={imperialValues.in} onChange={(e) => setImperialValues({ ...imperialValues, in: e.target.value })} aria-label="Height in inches" className="bg-white/10 border-white/20 placeholder-gray-400"/>
+                  <Input type="number" placeholder="feet" value={imperialValues.ft} onChange={(e) => setImperialValues({ ...imperialValues, ft: e.target.value })} aria-label="Height in feet" className={inputClassName}/>
+                  <Input type="number" placeholder="inches" value={imperialValues.in} onChange={(e) => setImperialValues({ ...imperialValues, in: e.target.value })} aria-label="Height in inches" className={inputClassName}/>
                 </div>
               </div>
             </TabsContent>
@@ -186,12 +190,12 @@ export default function BmiCalculator() {
             <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                     <Label htmlFor="age">Age</Label>
-                    <Input id="age" type="number" placeholder="e.g., 25" value={age} onChange={(e) => setAge(e.target.value)} className="bg-white/10 border-white/20 placeholder-gray-400"/>
+                    <Input id="age" type="number" placeholder="e.g., 25" value={age} onChange={(e) => setAge(e.target.value)} className={inputClassName}/>
                 </div>
                 <div className="space-y-2">
                     <Label htmlFor="gender">Gender</Label>
                     <Select value={gender} onValueChange={(v) => setGender(v as Gender)}>
-                        <SelectTrigger id="gender" className="bg-white/10 border-white/20">
+                        <SelectTrigger id="gender" className={selectTriggerClassName}>
                             <SelectValue placeholder="Select gender" />
                         </SelectTrigger>
                         <SelectContent className={cardClassName}>
@@ -204,7 +208,7 @@ export default function BmiCalculator() {
             <div className="space-y-2">
                 <Label htmlFor="activity-level">Activity Level</Label>
                  <Select value={activityLevel} onValueChange={(v) => setActivityLevel(v as ActivityLevel)}>
-                    <SelectTrigger id="activity-level" className="bg-white/10 border-white/20">
+                    <SelectTrigger id="activity-level" className={selectTriggerClassName}>
                         <SelectValue placeholder="Select activity level" />
                     </SelectTrigger>
                     <SelectContent className={cardClassName}>
@@ -252,19 +256,19 @@ export default function BmiCalculator() {
                 <RadioGroup value={goal} onValueChange={(v) => setGoal(v as Goal)} className="grid grid-cols-3 gap-4 mb-4">
                     <div>
                         <RadioGroupItem value="lose" id="lose" className="peer sr-only" />
-                        <Label htmlFor="lose" className="flex flex-col items-center justify-between rounded-md border-2 border-white/20 bg-black/20 p-4 hover:bg-white/30 hover:text-white peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary">
+                        <Label htmlFor="lose" className="flex flex-col items-center justify-between rounded-md border-2 border-white/20 bg-transparent p-4 hover:bg-white/20 hover:text-white peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary">
                             Lose Weight
                         </Label>
                     </div>
                      <div>
                         <RadioGroupItem value="maintain" id="maintain" className="peer sr-only" />
-                        <Label htmlFor="maintain" className="flex flex-col items-center justify-between rounded-md border-2 border-white/20 bg-black/20 p-4 hover:bg-white/30 hover:text-white peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary">
+                        <Label htmlFor="maintain" className="flex flex-col items-center justify-between rounded-md border-2 border-white/20 bg-transparent p-4 hover:bg-white/20 hover:text-white peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary">
                             Maintain
                         </Label>
                     </div>
                      <div>
                         <RadioGroupItem value="gain" id="gain" className="peer sr-only" />
-                        <Label htmlFor="gain" className="flex flex-col items-center justify-between rounded-md border-2 border-white/20 bg-black/20 p-4 hover:bg-white/30 hover:text-white peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary">
+                        <Label htmlFor="gain" className="flex flex-col items-center justify-between rounded-md border-2 border-white/20 bg-transparent p-4 hover:bg-white/20 hover:text-white peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary">
                             Gain Weight
                         </Label>
                     </div>
