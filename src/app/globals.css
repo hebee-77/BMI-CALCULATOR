@@ -82,10 +82,8 @@
   }
   body {
     @apply bg-background text-foreground;
-    background-image: url('https://picsum.photos/1920/1080');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-color: #0f0c29;
+    background: #0f0c29;
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
   }
 }
