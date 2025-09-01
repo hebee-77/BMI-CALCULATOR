@@ -4,8 +4,8 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'BMI QuickCheck',
-  description: 'A straightforward BMI calculator to quickly determine your Body Mass Index.',
+  title: 'BMI & Calorie QuickCheck',
+  description: 'A straightforward BMI and calorie calculator.',
 };
 
 export default function RootLayout({
