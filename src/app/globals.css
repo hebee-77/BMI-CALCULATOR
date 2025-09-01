@@ -24,7 +24,7 @@
     --border: 217 32.6% 17.5%;
     --input: 217 32.6% 17.5%;
     --ring: 230 100% 60%;
-    --radius: 0.5rem;
+    --radius: 9999px;
     --chart-1: 230 100% 60%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
@@ -82,8 +82,10 @@
   }
   body {
     @apply bg-background text-foreground;
-    background: #0f0c29;
-    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
-    background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    background-image: url('https://picsum.photos/1920/1080');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #0f0c29;
   }
 }
